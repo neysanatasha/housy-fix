@@ -1,0 +1,95 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.bedroom {
+  width: 55px;
+}
+
+.bg {
+  background: rgba(196, 196, 196, 0.25) ;
+}
+
+.bgt {
+  background: #5A57AB !important;
+
+}
+
+.wd {
+  width: 75;
+}
+
+.warp {
+  flex-wrap: wrap !important;
+}
+
+.wc {
+  width: 290px !important;
+
+  border-radius: 5px !important;
+}
+
+.ci {
+  width: 150% !important;
+  height: 150% !important;
+
+}
+
+.fs18 {
+font-size: 15px !important;
+}
+
+.fs10 {
+  font-size: 10px !important;
+}
+
+.fc {
+  background-color: rgba(196, 196, 196, 0.25) !important;
+  color: black !important;
+  border: none !important;
+}
+
+.signmid {
+  text-align: center !important;
+}
+
+.robin {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

@@ -1,0 +1,98 @@
+.bedroom {
+  width: 55px;
+}
+
+/* .bg {
+    background: rgba(196, 196, 196, 0.25) ;
+} */
+
+.bg:checked {
+  background: blue !important ;
+}
+
+.bgt {
+  background: #5a57ab !important;
+}
+
+.wd {
+  width: 75;
+}
+
+.warp {
+  flex-wrap: wrap !important;
+}
+
+.wc {
+  width: 290px !important;
+
+  border-radius: 5px !important;
+}
+
+.ci {
+  width: 150% !important;
+  height: 150% !important;
+}
+
+.fs18 {
+  font-size: 15px !important;
+}
+
+.fs10 {
+  font-size: 10px !important;
+}
+
+.fc {
+  background-color: rgba(196, 196, 196, 0.25) !important;
+  color: black !important;
+  border: none !important;
+}
+
+.signmid {
+  text-align: center !important;
+}
+
+.si {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.robin {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fs24 {
+  font-size: 20px;
+}
+
+.bd {
+  border: none !important;
+}
+
+.myc {
+  width: 1035px !important;
+  left: 201px !important;
+  top: 193px !important;
+  border-radius: 5px !important;
+}
+
+.fmb {
+  display: flex !important;
+  flex-direction: column;
+  gap: 20px;
+}
+.jcb {
+  justify-content: space-between !important;
+}
+
+.fs-10 {
+  font-size: 13px !important;
+}
+
+.image-2 {
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+}
