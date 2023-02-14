@@ -148,7 +148,7 @@ func (h *handlerTransaction) CreateTransaction(w http.ResponseWriter, r *http.Re
 	}
 
 	snapResp, _ := s.CreateTransaction(req)
-	fmt.Println("ini snaprespOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOONNN", snapResp)
+	fmt.Println("ini snaprespon", snapResp)
 
 	w.WriteHeader(http.StatusOK)
 	response := dto.SuccessResult{Code: http.StatusOK, Data: snapResp}
@@ -286,20 +286,20 @@ func (h *handlerTransaction) Notification(w http.ResponseWriter, r *http.Request
 func SendMail(status string, transaction models.Transaction) {
 
 	if status != transaction.StatusPayment && (status == "success") {
-	  var CONFIG_SMTP_HOST = "smtp.gmail.com"
-	  var CONFIG_SMTP_PORT = 587
-	  var CONFIG_SENDER_NAME = "teddy <teddyadjip@gmail.com>"
-	  var CONFIG_AUTH_EMAIL = os.Getenv("EMAIL_SYSTEM")
-	  var CONFIG_AUTH_PASSWORD = os.Getenv("PASSWORD_SYSTEM")
-  
-	  var productName = transaction.House.Name
-	  var price = strconv.Itoa(transaction.House.Price)
-  
-	  mailer := gomail.NewMessage()
-	  mailer.SetHeader("From", CONFIG_SENDER_NAME)
-	  mailer.SetHeader("To", transaction.User.Email)
-	  mailer.SetHeader("Subject", "Transaction Status")
-	  mailer.SetBody("text/html", fmt.Sprintf(`<!DOCTYPE html>
+		var CONFIG_SMTP_HOST = "smtp.gmail.com"
+		var CONFIG_SMTP_PORT = 587
+		var CONFIG_SENDER_NAME = "Housy booking status <neysatarigan@gmail.com>"
+		var CONFIG_AUTH_EMAIL = os.Getenv("EMAIL_SYSTEM")
+		var CONFIG_AUTH_PASSWORD = os.Getenv("PASSWORD_SYSTEM")
+
+		var productName = transaction.House.Name
+		var price = strconv.Itoa(transaction.House.Price)
+
+		mailer := gomail.NewMessage()
+		mailer.SetHeader("From", CONFIG_SENDER_NAME)
+		mailer.SetHeader("To", transaction.User.Email)
+		mailer.SetHeader("Subject", "Transaction Status")
+		mailer.SetBody("text/html", fmt.Sprintf(`<!DOCTYPE html>
 	  <html lang="en">
 	  <head>
 	  <meta charset="UTF-8" />
@@ -321,22 +321,22 @@ func SendMail(status string, transaction models.Transaction) {
 	  </ul>
 	  </body>
 	</html>`, productName, price, status))
-  
-	  dialer := gomail.NewDialer(
-		CONFIG_SMTP_HOST,
-		CONFIG_SMTP_PORT,
-		CONFIG_AUTH_EMAIL,
-		CONFIG_AUTH_PASSWORD,
-	  )
-  
-	  err := dialer.DialAndSend(mailer)
-	  if err != nil {
-		log.Fatal(err.Error())
-	  }
-  
-	  log.Println("Mail sent! to " + transaction.User.Email)
+
+		dialer := gomail.NewDialer(
+			CONFIG_SMTP_HOST,
+			CONFIG_SMTP_PORT,
+			CONFIG_AUTH_EMAIL,
+			CONFIG_AUTH_PASSWORD,
+		)
+
+		err := dialer.DialAndSend(mailer)
+		if err != nil {
+			log.Fatal(err.Error())
+		}
+
+		log.Println("Mail sent! to " + transaction.User.Email)
 	}
-  }
+}
 
 func (h *handlerTransaction) DeleteTransaction(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
