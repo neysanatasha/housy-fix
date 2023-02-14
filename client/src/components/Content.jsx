@@ -2,12 +2,10 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import "../style/style.css";
-// import ListData from '../assets/datas/data';
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "react-query";
 import { API } from "../config/api";
 import convertRupiah from "rupiah-format";
-// import { useParams } from "react-router-dom";
 
 function Content() {
   const navigate = useNavigate();

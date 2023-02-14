@@ -3,7 +3,6 @@ import Logo from "../assets/images/Icon.svg";
 import Navbar from "../components/Navbar";
 import NavigateDetailProperty from "./NavbarDetailProperty";
 import "../style/style.css";
-// import { useState } from "react"
 import convertRupiah from "rupiah-format";
 import Kosong from "../assets/images/kosong.jpg";
 import Isi from "../assets/images/isi.jpg";

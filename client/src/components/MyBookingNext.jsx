@@ -7,14 +7,7 @@ import Kosong from "../assets/images/kosong.jpg";
 import Isi from "../assets/images/isi.jpg";
 import Garis from "../assets/images/garis.jpg";
 
-
-
-
 function MyBooking(props) {
-    // const [show, setShow] = useState(false);
-
-    // const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
     return (
 
 <div style={{marginTop:"9rem"}}>

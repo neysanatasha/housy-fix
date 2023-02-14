@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 
-import Robin from "../assets/images/robin.jpg";
+import Robin from "../assets/images/robin.jpeg";
 import Profile from "../assets/images/user2.png";
 import Cabin from "../assets/images/cabin.png";
 import Calender from "../assets/images/calendar.png";
@@ -20,12 +20,7 @@ import { UserContext } from "../context/userContext";
 import { setAuthToken } from "../config/api";
 
 function DropDown(props) {
-  // const dataId = JSON.parse(localStorage.getItem("DataId"));
-  // const status = JSON.parse(localStorage.getItem("UserSignUp"));
-  // const { id } = useParams();
-  // const navigate = useNavigate();
   const [state, dispatch] = useContext(UserContext);
-
   let navigate = useNavigate();
 
   const logout = () => {

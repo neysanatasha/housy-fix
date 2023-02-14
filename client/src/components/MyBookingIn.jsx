@@ -2,9 +2,6 @@ import { Container, Button, Row, Col } from "react-bootstrap"
 import Logo from "../assets/images/Icon.svg";
 import Bukti from "../assets/images/Bukti.jpg";
 import Navbar from "../components/Navbar";
-// import listData from "./data";
-// import { useState } from "react"
-// import { useParams } from "react-router-dom";
 import Kosong from "../assets/images/kosong.jpg";
 import Isi from "../assets/images/isi.jpg";
 import Garis from "../assets/images/garis.jpg";

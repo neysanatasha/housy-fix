@@ -95,13 +95,15 @@ func (h *handlerHouse) CreateHouse(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// get image filepath
+	dataContex := r.Context().Value("dataFile")
+	filepath := dataContex.(string)
+
 	var ctx = context.Background()
 	var CLOUD_NAME = os.Getenv("CLOUD_NAME")
 	var API_KEY = os.Getenv("API_KEY")
 	var API_SECRET = os.Getenv("API_SECRET")
-	// get image filepath
-	dataContex := r.Context().Value("dataFile")
-	filepath := dataContex.(string)
+
 	// Add your Cloudinary credentials ...
 	cld, _ := cloudinary.NewFromParams(CLOUD_NAME, API_KEY, API_SECRET)
 

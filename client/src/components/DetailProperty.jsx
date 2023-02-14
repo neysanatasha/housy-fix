@@ -1,27 +1,20 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-// import NavbarProject from "../components/NavbarProject";
 import Modal from "react-bootstrap/Modal";
 import Container from "react-bootstrap/esm/Container";
-// import Img1 from "../images/Img1.jpg";
 import Bath from "../assets/images/bath.jpg";
 import Bed from "../assets/images/bed.jpg";
 import Form from "react-bootstrap/Form";
 import { useNavigate, useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-// import bathimg from "../assets/img/bathimg.png";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
-// import bedimg from "../assets/img/bedimg.png";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 import Button from "react-bootstrap/esm/Button";
 import NavigateDetailProperty from "./NavbarDetailProperty";
-// import listData from "../components/Data";
-// import { useContext } from "react";
 import convertRupiah from "rupiah-format";
 import Navbar from "../components/Navbar";
 import { useMutation } from "react-query";
-// import listData from "../assets/datas/data";
 import { useQuery } from "react-query";
 import { API } from "../config/api";
 
