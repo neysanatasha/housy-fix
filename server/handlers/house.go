@@ -19,8 +19,6 @@ import (
 	"gorm.io/datatypes"
 )
 
-// var path_file = "http://localhost:5000/uploads/"
-
 type handlerHouse struct {
 	HouseRepository repositories.HouseRepository
 }
@@ -70,12 +68,6 @@ func (h *handlerHouse) GetHouse(w http.ResponseWriter, r *http.Request) {
 
 func (h *handlerHouse) CreateHouse(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-
-	// Get dataFile from midleware and store to filename variable here ...
-
-	// dataContex := r.Context().Value("dataFile") // add this code
-	// filename := dataContex.(string)             // add this code
-
 	price, _ := strconv.Atoi(r.FormValue("price"))
 	Bedroom, _ := strconv.Atoi(r.FormValue("Bedroom"))
 	Bathroom, _ := strconv.Atoi(r.FormValue("Bathroom"))
@@ -89,9 +81,9 @@ func (h *handlerHouse) CreateHouse(w http.ResponseWriter, r *http.Request) {
 		Area:        r.FormValue("area"),
 		Amenities:   datatypes.JSON(r.FormValue("amenities")),
 		// Image:       r.FormValue("image"),
-		Bedroom:     Bedroom,
-		Price:       price,
-		Bathroom:    Bathroom,
+		Bedroom:  Bedroom,
+		Price:    price,
+		Bathroom: Bathroom,
 	}
 
 	validation := validator.New()
@@ -103,21 +95,21 @@ func (h *handlerHouse) CreateHouse(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var ctx = context.Background() 
-   var CLOUD_NAME = os.Getenv("CLOUD_NAME") 
-   var API_KEY = os.Getenv("API_KEY") 
-   var API_SECRET = os.Getenv("API_SECRET") 
-  // get image filepath 
-  dataContex := r.Context().Value("dataFile") 
-  filepath := dataContex.(string) 
-  // Add your Cloudinary credentials ... 
-  cld, _ := cloudinary.NewFromParams(CLOUD_NAME, API_KEY, API_SECRET) 
- 
-  // Upload file to Cloudinary ... 
-  resp, err := cld.Upload.Upload(ctx, filepath, uploader.UploadParams{Folder: "uploads"}) 
-  if err != nil { 
-    fmt.Println(err.Error()) 
-  }
+	var ctx = context.Background()
+	var CLOUD_NAME = os.Getenv("CLOUD_NAME")
+	var API_KEY = os.Getenv("API_KEY")
+	var API_SECRET = os.Getenv("API_SECRET")
+	// get image filepath
+	dataContex := r.Context().Value("dataFile")
+	filepath := dataContex.(string)
+	// Add your Cloudinary credentials ...
+	cld, _ := cloudinary.NewFromParams(CLOUD_NAME, API_KEY, API_SECRET)
+
+	// Upload file to Cloudinary ...
+	resp, err := cld.Upload.Upload(ctx, filepath, uploader.UploadParams{Folder: "uploads"})
+	if err != nil {
+		fmt.Println(err.Error())
+	}
 
 	house := models.House{
 		Name:        request.Name,
@@ -131,7 +123,6 @@ func (h *handlerHouse) CreateHouse(w http.ResponseWriter, r *http.Request) {
 		Description: request.Description,
 		Area:        request.Area,
 		Image:       resp.SecureURL,
-
 	}
 
 	// err := mysql.DB.Create(&product).Error
